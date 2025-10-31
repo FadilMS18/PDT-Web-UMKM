@@ -22,21 +22,11 @@ a:visited{
 body{
     position: relative;
 }
-
-.absolute{
-    position: absolute;
-}
-
 #nav1{
+    position: absolute;
     top: 0;
-    left:0;
-    right:0;
-    padding:25px 56px;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    z-index: 9999;
-    transition: .25s;
+    left:20px;
+    right:20px;
     color: white;
 }
 
@@ -46,12 +36,14 @@ body{
 }
 
 #sticky-nav{
+    position: fixed;
     top: 25px;
     left:100px;
     right:100px;
     background-color: #F9F6EE;
     border-radius: 30px;
     color: black;
+    box-shadow: 0px 0px 20px -8px rgba(0, 0, 0, .3);
 }
 
 #nav1,
@@ -73,14 +65,13 @@ body{
 }
 
 #nav-left > a,
-#sticky-nav-left > p{
+#sticky-nav-left > a{
     cursor: pointer;
     transition: .2s
-    /* background-color: lightcoral; */
 }
 
 #nav-left > a:hover,
-#sticky-nav-left > p:hover{
+#sticky-nav-left > a:hover{
     transform: scale(1.15);
 }
 
@@ -102,27 +93,8 @@ body{
     transform: scale(1.15);
 }
 
-.fixed{
-    position: fixed;
-}
-
 .sticky-nav-disappear{
     transform: translateY(-100px);
-}
-
-#sticky-nav{
-    top: 25px;
-    left:100px;
-    right:100px;
-    background-color: #F9F6EE;
-    border-radius: 30px;
-    padding:20px 56px;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    z-index: 9999;
-    transition: .25s;
-    color: black;
 }
 
 header{
