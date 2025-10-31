@@ -1,5 +1,5 @@
 :root{
-    font-family:Roboto, Roboto, Arial;
+    font-family:Roboto, Arial;
     background-color: #F9F6EE;
     height: 1000vh;
 }
@@ -7,6 +7,16 @@
 *{
     margin:0;
     padding:0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    
+}
+
+a:visited{
+    color: inherit;
 }
 
 body{
@@ -21,7 +31,6 @@ body{
     top: 0;
     left:0;
     right:0;
-    /* background-color: rgba(0, 0, 0, 0.61); */
     padding:25px 56px;
     display: flex;
     align-items: center;
@@ -31,45 +40,74 @@ body{
     color: white;
 }
 
-.disappear{
+.nav-start-disappear{
     transform: translateY(-40px);
     opacity: 0;
 }
 
-#nav-left{
+#sticky-nav{
+    top: 25px;
+    left:100px;
+    right:100px;
+    background-color: #F9F6EE;
+    border-radius: 30px;
+    color: black;
+}
+
+#nav1,
+#sticky-nav{
+    padding:20px 56px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    z-index: 9999;
+    transition: .25s;
+}
+
+#nav-left, 
+#sticky-nav-left{
     display: flex;
     justify-content: space-between;
     flex: .5;
     
 }
 
-#nav-left > p{
-    color: white;
+#nav-left > a,
+#sticky-nav-left > p{
     cursor: pointer;
     transition: .2s
     /* background-color: lightcoral; */
 }
 
-#nav-left > p:hover{
+#nav-left > a:hover,
+#sticky-nav-left > p:hover{
     transform: scale(1.15);
 }
 
-#nav-right{
+#nav-right,
+#sticky-nav-right{
     display: flex;
     justify-content: end;
     flex: .5;
 }
-#nav-right >h2{
-    color:white;
+
+#nav-right > h2,
+#sticky-nav-right > h2{
     transition: .25s;
     cursor: pointer;
 }
-#nav-right > h2:hover{
+
+#nav-right > h2:hover,
+#sticky-nav-right > h2:hover{
     transform: scale(1.15);
 }
 
 .fixed{
     position: fixed;
+}
+
+.sticky-nav-disappear{
+    transform: translateY(-100px);
 }
 
 #sticky-nav{
@@ -85,37 +123,6 @@ body{
     z-index: 9999;
     transition: .25s;
     color: black;
-}
-
-
-#sticky-nav-left{
-    display: flex;
-    justify-content: space-between;
-    flex: .5;
-    
-}
-
-#sticky-nav-left > p{
-    cursor: pointer;
-    transition: .2s
-    /* background-color: lightcoral; */
-}
-
-#sticky-nav-left > p:hover{
-    transform: scale(1.15);
-}
-
-#sticky-nav-right{
-    display: flex;
-    justify-content: end;
-    flex: .5;
-}
-#sticky-nav-right >h2{
-    transition: .25s;
-    cursor: pointer;
-}
-#sticky-nav-right > h2:hover{
-    transform: scale(1.15);
 }
 
 header{
