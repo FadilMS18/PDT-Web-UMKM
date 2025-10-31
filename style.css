@@ -7,3 +7,63 @@
     margin:0;
     padding:0;
 }
+
+body{
+    position: relative;
+}
+
+.absolute{
+    position: absolute;
+}
+
+nav{
+    top: 0;
+    left:0;
+    right:0;
+    /* background-color: rgba(0, 0, 0, 0.61); */
+    padding:25px 56px;
+    display: flex;
+    align-items: center;
+    font-size: 14px
+    
+}
+
+#nav-left{
+    display: flex;
+    justify-content: space-between;
+    flex: .5;
+    
+}
+
+#nav-left > p{
+    color: white;
+    cursor: pointer;
+    transition: .2s
+    /* background-color: lightcoral; */
+}
+
+#nav-left > p:hover{
+    transform: scale(1.15);
+}
+
+#nav-right{
+    display: flex;
+    justify-content: end;
+    flex: .5;
+}
+#nav-right >h2{
+    color:white;
+    transition: .25s;
+    cursor: pointer;
+}
+#nav-right > h2:hover{
+    transform: scale(1.15);
+    
+}
+
+header{
+    background: url(./assets/IMG/Pallubasa-shutterstock_1737686360.webp);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
