@@ -1,6 +1,7 @@
 :root{
     font-family:Roboto, Roboto, Arial;
     background-color: #F9F6EE;
+    height: 1000vh;
 }
 
 *{
@@ -16,7 +17,7 @@ body{
     position: absolute;
 }
 
-nav{
+#nav1{
     top: 0;
     left:0;
     right:0;
@@ -24,8 +25,15 @@ nav{
     padding:25px 56px;
     display: flex;
     align-items: center;
-    font-size: 14px
-    
+    font-size: 14px;
+    z-index: 9999;
+    transition: .25s;
+    color: white;
+}
+
+.disappear{
+    transform: translateY(-40px);
+    opacity: 0;
 }
 
 #nav-left{
@@ -58,7 +66,56 @@ nav{
 }
 #nav-right > h2:hover{
     transform: scale(1.15);
+}
+
+.fixed{
+    position: fixed;
+}
+
+#sticky-nav{
+    top: 25px;
+    left:100px;
+    right:100px;
+    background-color: #F9F6EE;
+    border-radius: 30px;
+    padding:20px 56px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    z-index: 9999;
+    transition: .25s;
+    color: black;
+}
+
+
+#sticky-nav-left{
+    display: flex;
+    justify-content: space-between;
+    flex: .5;
     
+}
+
+#sticky-nav-left > p{
+    cursor: pointer;
+    transition: .2s
+    /* background-color: lightcoral; */
+}
+
+#sticky-nav-left > p:hover{
+    transform: scale(1.15);
+}
+
+#sticky-nav-right{
+    display: flex;
+    justify-content: end;
+    flex: .5;
+}
+#sticky-nav-right >h2{
+    transition: .25s;
+    cursor: pointer;
+}
+#sticky-nav-right > h2:hover{
+    transform: scale(1.15);
 }
 
 header{
@@ -66,4 +123,14 @@ header{
     background-size: cover;
     background-position: center;
     height: 100vh;
+    position: relative;
+}
+
+.overlay-header{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), 68%, rgba(255, 255, 255,0));
 }
