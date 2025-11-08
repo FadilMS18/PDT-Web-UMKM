@@ -2,6 +2,12 @@
     font-family:Roboto, Arial;
     background-color: #F9F6EE;
     height: 1000vh;
+    background-image: url(./assets/IMG/output-onlinepngtools.png);
+    scroll-behavior: smooth;
+}
+@font-face {
+    font-family: outfit;
+    src: url(./assets/font/Outfit/Outfit-VariableFont_wght.ttf);
 }
 
 *{
@@ -12,7 +18,6 @@
 a{
     text-decoration: none;
     color: inherit;
-    
 }
 
 a:visited{
@@ -28,6 +33,7 @@ body{
     left:20px;
     right:20px;
     color: white;
+    font-family: outfit, Roboto;
 }
 
 .nav-start-disappear{
@@ -36,6 +42,7 @@ body{
 }
 
 #sticky-nav{
+    font-family: outfit;
     position: fixed;
     top: 25px;
     left:100px;
@@ -103,6 +110,7 @@ header{
     background-position: center;
     height: 100vh;
     position: relative;
+    overflow: auto;
 }
 
 .overlay-header{
@@ -111,5 +119,76 @@ header{
     left:0;
     right:0;
     height: 100%;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), 68%, rgba(255, 255, 255,0));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), 68%, rgba(0, 0, 0,0));
+}
+
+#hero-container{
+    position: relative;
+    padding-top: 183px;
+    padding-left: 84px;
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    color: white;
+}
+
+#hero-container > h1{
+    font-size: 72px;
+    letter-spacing: 5px;
+    font-family: outfit;
+}
+
+#hero-container > #punchline{
+    font-size: 28px;
+}
+
+#hero-button-container{
+    display: flex;
+    padding:10px;
+    gap:20px;
+}
+
+.call-to-action-group{
+    border:solid 3px orange;
+    border-radius:100px;
+    padding:15px 25px;
+    transition: .25s;
+    cursor: pointer;
+
+    background-color: rgb(0, 0, 0);
+    color: orange;
+    font-weight: bold;
+}
+
+.call-to-action-group:hover{
+    transform: scale(1.1);
+    background-color: orange;
+    color: black;
+    border: 3px solid black;
+    box-shadow: 0 0 5px rgba(255, 255, 255, .3);
+}
+
+#about-me-container{
+    display: flex;
+    flex-direction: column;
+    gap:75px;
+    height: 100vh;
+    justify-content: start;
+    align-items: center;
+    padding:220px 156px;
+    background-image: url(./assets/IMG/output-onlinepngtools.png);
+}
+
+#about-me-title{
+    font-size: 96px;
+    font-weight: bold;
+    line-height: 50px;
+    font-family: outfit;
+}
+
+#about-me-description{
+    font-size: 26px;
+    line-height: 65px;
+    letter-spacing: 25%;
+    text-align: center;
 }
