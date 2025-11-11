@@ -24,6 +24,4 @@ function stickyNavbarShow(){
     }
 }
 document.addEventListener("scroll", stickyNavbarShow)
-// document.addEventListener("DOMContentLoaded", time)
-
-console.log(window.pageYOffset)
+document.addEventListener("DOMContentLoaded", time)
