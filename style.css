@@ -30,8 +30,8 @@ body{
 #nav1{
     position: absolute;
     top: 0;
-    left:20px;
-    right:20px;
+    left: 0;
+    right: 0;
     color: white;
     font-family: outfit, Roboto;
 }
@@ -45,23 +45,28 @@ body{
     font-family: outfit;
     position: fixed;
     top: 25px;
-    left:100px;
-    right:100px;
+    left:80px;
+    right:80px;
     background-color: #F9F6EE;
     border-radius: 30px;
     color: black;
     box-shadow: 0px 0px 20px -8px rgba(0, 0, 0, .3);
+    padding:20px 56px;
 }
 
 #nav1,
 #sticky-nav{
-    padding:20px 56px;
     display: flex;
     align-items: center;
     font-size: 14px;
     z-index: 9999;
     transition: .25s;
 }
+
+#nav1{
+    padding:20px 60px;
+}
+
 
 #nav-left, 
 #sticky-nav-left{
@@ -125,7 +130,7 @@ header{
 #hero-container{
     position: relative;
     padding-top: 183px;
-    padding-left: 84px;
+    padding-left: 60px;
     display: flex;
     flex-direction: column;
     gap:15px;
@@ -172,7 +177,7 @@ header{
     display: flex;
     flex-direction: column;
     gap:75px;
-    height: 100vh;
+
     justify-content: start;
     align-items: center;
     padding:220px 156px;
@@ -191,4 +196,23 @@ header{
     line-height: 65px;
     letter-spacing: 25%;
     text-align: center;
+}
+
+#our-best-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+    
+}
+
+#our-best-title{
+    font-size: 128px;
+    font-family: outfit;
+}
+
+#carrousel-our-best-container{
+    background-color: lightcoral;
+    min-width:1360px;
+    padding:0 60px;
 }
