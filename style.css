@@ -36,11 +36,6 @@ body{
     font-family: outfit, Roboto;
 }
 
-.nav-start-disappear{
-    transform: translateY(-40px);
-    opacity: 0;
-}
-
 #sticky-nav{
     font-family: outfit;
     position: fixed;
@@ -212,7 +207,46 @@ header{
 }
 
 #carrousel-our-best-container{
-    background-color: lightcoral;
-    min-width:1360px;
-    padding:0 60px;
+    width: 1360px;
+    margin:0 40px;
+    display: grid;
+    gap:20px;
+    grid-auto-flow: column;
+    grid-auto-columns: 325px;
+    grid-template-rows: 488px;
+}
+
+.our-best-item{
+    border-radius: 10px;
+    background-color: #D4D4D4;
+    box-shadow:0 0 6px rgba(0, 0, 0, .3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#best-card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+    padding:0 38px;
+}
+
+#best-card-image{
+    width: 300px;
+}
+
+#best-card-title{
+    font-family: outfit;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#best-card-description{
+    font-family: roboto;
+    font-size: 14px;
+    font-weight: 450;
+    text-align: center;
+    line-height: 20px;
 }

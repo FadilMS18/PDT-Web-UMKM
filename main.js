@@ -1,6 +1,7 @@
 let navbar1 = document.querySelector("#nav1")
 let stickyNav = document.querySelector("#sticky-nav")
 let catalog = document.querySelector("#sidebar > h3")
+let prevScrollPos = window.pageYOffset
 
 function time(){
     setTimeout(()=>{
@@ -9,18 +10,20 @@ function time(){
 }
 
 console.log(catalog)
-function stickyNavToggle(){
-    if(window.scrollY >= 40){
-        if(stickyNav.classList.contains("sticky-nav-disappear")){
-            stickyNav.classList.remove("sticky-nav-disappear")
-            catalog.classList.add("nav-start-disappear")
-        }
+
+function stickyNavbarShow(){
+    const currentScrollPos = window.pageYOffset;
+    if(prevScrollPos > currentScrollPos){
+        stickyNav.classList.remove("sticky-nav-disappear")
     }else{
         stickyNav.classList.add("sticky-nav-disappear")
-        catalog.classList.remove("nav-start-disappear")
+    }
+    prevScrollPos = currentScrollPos
+    if(window.pageYOffset <= 40){
+        stickyNav.classList.add("sticky-nav-disappear")
     }
 }
+document.addEventListener("scroll", stickyNavbarShow)
+// document.addEventListener("DOMContentLoaded", time)
 
-document.addEventListener("scroll", stickyNavToggle)
-document.addEventListener("DOMContentLoaded", time)
-
+console.log(window.pageYOffset)
