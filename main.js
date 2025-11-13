@@ -25,3 +25,21 @@ function stickyNavbarShow(){
 }
 document.addEventListener("scroll", stickyNavbarShow)
 document.addEventListener("DOMContentLoaded", time)
+
+const catalogCard = Array.from(document.querySelectorAll(".catalog-card"))
+catalogCard.forEach(card => {
+    card.addEventListener("mouseover", cardDescDisappear)
+    card.addEventListener("mouseout", cardDescAppear)
+});
+
+function cardDescDisappear(){
+    let descContainer = this.querySelector(".desc-container")
+    descContainer.classList.add("catalog-description-disappear")
+}
+
+function cardDescAppear(){
+    let descContainer = this.querySelector(".desc-container")
+    if(descContainer.classList.contains("catalog-description-disappear")){
+        descContainer.classList.remove("catalog-description-disappear")
+    }
+}

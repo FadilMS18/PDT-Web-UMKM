@@ -116,6 +116,7 @@ header{
     height: 100vh;
     position: relative;
     overflow: auto;
+    box-shadow: 0 7px 25px -4px rgba(0, 0, 0, .3);
 }
 
 .overlay-header{

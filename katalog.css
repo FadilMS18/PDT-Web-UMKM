@@ -23,30 +23,70 @@
     box-shadow: 0px 0px 20px -8px rgba(0, 0, 0, .3);
 }
 
-#card-container{
+#catalog-card-container{
     position: absolute;
     top:125px;
     left:421px;
     right:76px;
-    display: flex;
-    flex-wrap: wrap;
-    gap:20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 325px);
+    grid-auto-rows: 291px;
 }
 
-.card{
-    height:281px;
-    width: 257px;
+.catalog-card{
     display: flex;
     flex-direction: column;
     justify-content: start;
+    gap:10px;
     align-items: start;
     padding: 5px 34px;
-    border-radius: 5px;
-    background-color: bisque;
+    border-radius: 10px;
+    backdrop-filter: blur(100px);
+    background-color: rgba(255, 229, 208, 0.1);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, .1);
+    transition: .25s;
+    cursor: pointer;
 }
 
-.card > img {
+
+.catalog-card:hover{
+    transform: scale(1.005);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .2);
+}
+
+.catalog-description-disappear{
+    transform: translateY(10px) translateX(20px) scale(0.8);
+    opacity: 0;
+}
+
+
+.catalog-card > img {
     width: 175px;
     align-self: center;
+}
+
+.catalog-card > .desc-container{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    transition: .25s;
+}
+
+#catalog-card-nama-makanan{
+    font-family: outfit;
+    font-size: 20px;
+    font-weight: 550;
+}
+
+#catalog-card-kategori-makanan{
+    font-family: roboto;
+    font-size: 12px;
+    color: #646464;
+}
+
+#catalog-card-harga-makanan{
+    font-family: outfit;
+    font-size: 16px;
+    font-weight: bold;
 }
