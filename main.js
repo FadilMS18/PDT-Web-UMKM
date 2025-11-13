@@ -15,12 +15,16 @@ function stickyNavbarShow() {
   const currentScrollPos = window.pageYOffset;
   if (prevScrollPos > currentScrollPos) {
     stickyNav.classList.remove("sticky-nav-disappear");
+    catalog.classList.add("nav-start-disappear");
+
   } else {
     stickyNav.classList.add("sticky-nav-disappear");
+    catalog.classList.remove("nav-start-disappear");
   }
   prevScrollPos = currentScrollPos;
   if (window.pageYOffset <= 40) {
     stickyNav.classList.add("sticky-nav-disappear");
+    catalog.classList.remove("nav-start-disappear");
   }
 }
 document.addEventListener("scroll", stickyNavbarShow);

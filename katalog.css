@@ -11,6 +11,7 @@
 #sidebar > h3{
     font-size: 28px;
     transition: .25s;
+    position: fixed;
 }
 
 #sidebar-menu-container{
@@ -46,6 +47,7 @@
     background-color: rgba(255, 229, 208, 0.1);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, .1);
     transition: .25s;
+    position: relative;
 }
 
 
@@ -70,12 +72,27 @@
     flex-direction: column;
     gap:5px;
     transition: .25s;
+    letter-spacing: 1px;
+}
+
+.catalog-card > span{
+    position: absolute;
+    top:10px;
+    right:10px;
+    padding:10px;
+    background-color: rgb(255, 66, 66);
+    font-family: roboto;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    border-radius: 10px;
 }
 
 #catalog-card-nama-makanan{
     font-family: outfit;
     font-size: 20px;
     font-weight: 550;
+    
 }
 
 #catalog-card-kategori-makanan{
@@ -90,6 +107,19 @@
     font-size: 16px;
     font-weight: bold;
     transition: .25s;
+}
+
+#catalog-card-harga-makanan.discount{
+    color: #969696;
+    text-decoration:line-through;
+}
+
+#catalog-card-harga-makanan > span{
+    color: rgb(255, 39, 39);
+    display: inline-block;
+    text-decoration: none;
+    margin-left:10px;
+    font-size: 20px;
 }
 
 #card-add-to-cart-button{
