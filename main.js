@@ -3,14 +3,14 @@ let stickyNav = document.querySelector("#sticky-nav");
 let catalog = document.querySelector("#sidebar > h3");
 let prevScrollPos = window.pageYOffset;
 
+// Function untuk membuat animasi navbar pas page pertama direload
 function time() {
   setTimeout(() => {
     navbar1.classList.remove("nav-start-disappear");
   }, 5);
 }
 
-console.log(catalog);
-
+// Sticky navbar akan muncul jika kita mengscroll keatas dan hilkang kalau scroll kebawah
 function stickyNavbarShow() {
   const currentScrollPos = window.pageYOffset;
   if (prevScrollPos > currentScrollPos) {
@@ -26,25 +26,29 @@ function stickyNavbarShow() {
 document.addEventListener("scroll", stickyNavbarShow);
 document.addEventListener("DOMContentLoaded", time);
 
+
 const catalogCard = Array.from(document.querySelectorAll(".catalog-card"));
 catalogCard.forEach((card) => {
-  const kategori = document.querySelector("#catalog-card-kategori-makanan");
-  const harga = document.querySelector("#catalog-card-harga-makanan");
-  card.addEventListener("mouseover", () => cardDescDisappear(kategori, harga));
-  card.addEventListener("mouseout", () => cardDescAppear(kategori, harga));
+  const kategori = card.querySelector("#catalog-card-kategori-makanan");
+  const harga = card.querySelector("#catalog-card-harga-makanan");
+  const button = card.querySelector("#card-add-to-cart-button")
+  card.addEventListener("mouseover", () => cardDescDisappear(kategori, harga, button));
+  card.addEventListener("mouseout", () => cardDescAppear(kategori, harga, button));
 });
 
-function cardDescDisappear(element1, element2) {
-  element1.classList.add("catalog-description-disappear");
-  element2.classList.add("catalog-description-disappear");
+function cardDescDisappear(category, price, button) {
+  category.classList.add("catalog-description-disappear");
+  price.classList.add("catalog-description-disappear");
+  button.classList.remove("card-button-disappear")
 }
 
-function cardDescAppear(element1, element2) {
+function cardDescAppear(category, price, button) {
   if (
-    element1.classList.contains("catalog-description-disappear") &&
-    element2.classList.contains("catalog-description-disappear")
+    category.classList.contains("catalog-description-disappear") &&
+    price.classList.contains("catalog-description-disappear")
   ) {
-    element1.classList.remove("catalog-description-disappear");
-    element2.classList.remove("catalog-description-disappear");
+    category.classList.remove("catalog-description-disappear");
+    price.classList.remove("catalog-description-disappear");
+    button.classList.add("card-button-disappear")
   }
 }

@@ -46,7 +46,6 @@
     background-color: rgba(255, 229, 208, 0.1);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, .1);
     transition: .25s;
-    cursor: pointer;
 }
 
 
@@ -102,7 +101,21 @@
     font-weight: 550;
     letter-spacing: 1px;
     padding:12px ;
+    background-color: #FF7B54;
     border-radius: 10px;
-    border: none;
+    border: 1px solid black;
     box-shadow: 0 0 6px rgba(0, 0, 0, .1);
+    transition: .25s;
+    cursor: pointer;
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+#card-add-to-cart-button:hover{
+    transform: scale(1.02);
+}
+
+#card-add-to-cart-button.card-button-disappear{
+    transform: scale(0) translateY(20px);
+    opacity: 0;
 }
