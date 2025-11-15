@@ -1,6 +1,7 @@
-let navbar1 = document.querySelector("#nav1");
-let stickyNav = document.querySelector("#sticky-nav");
-let catalog = document.querySelector("#sidebar > h3");
+const navbar1 = document.querySelector("#nav1");
+const stickyNav = document.querySelector("#sticky-nav");
+const sidebar = document.querySelector("#sidebar")
+const catalog = document.querySelector("#sidebar > h3");
 let prevScrollPos = window.pageYOffset;
 
 // Function untuk membuat animasi navbar pas page pertama direload
@@ -16,7 +17,6 @@ function stickyNavbarShow() {
   if (prevScrollPos > currentScrollPos) {
     stickyNav.classList.remove("sticky-nav-disappear");
     catalog.classList.add("nav-start-disappear");
-
   } else {
     stickyNav.classList.add("sticky-nav-disappear");
     catalog.classList.remove("nav-start-disappear");
@@ -30,22 +30,40 @@ function stickyNavbarShow() {
 document.addEventListener("scroll", stickyNavbarShow);
 document.addEventListener("DOMContentLoaded", time);
 
-
 const catalogCard = Array.from(document.querySelectorAll(".catalog-card"));
-catalogCard.forEach((card) => {
-  const kategori = card.querySelector("#catalog-card-kategori-makanan");
-  const harga = card.querySelector("#catalog-card-harga-makanan");
-  const button = card.querySelector("#card-add-to-cart-button")
-  card.addEventListener("mouseover", () => cardDescDisappear(kategori, harga, button));
-  card.addEventListener("mouseout", () => cardDescAppear(kategori, harga, button));
+
+// Animasi card & sidebar masuk 1 per satu ketika document di load
+document.addEventListener("DOMContentLoaded", () => {
+  sidebar.classList.remove("catalog-card-enter")
+  catalogCard.forEach((card, index) => {
+    setTimeout(() => {
+      card.classList.remove("catalog-card-enter");
+    }, index * 80);
+  });
 });
 
+// Animasi yang memunculkan tombol add to cart
+catalogCard.forEach((card, index) => {
+  const kategori = card.querySelector("#catalog-card-kategori-makanan");
+  const harga = card.querySelector("#catalog-card-harga-makanan");
+  const button = card.querySelector("#card-add-to-cart-button");
+  card.addEventListener("mouseover", () =>
+    cardDescDisappear(kategori, harga, button)
+  );
+  card.addEventListener("mouseout", () =>
+    cardDescAppear(kategori, harga, button)
+  );
+});
+
+
+// function yang menghilangkan descripsi ketika card di hover
 function cardDescDisappear(category, price, button) {
   category.classList.add("catalog-description-disappear");
   price.classList.add("catalog-description-disappear");
-  button.classList.remove("card-button-disappear")
+  button.classList.remove("card-button-disappear");
 }
 
+// function yang memunculkan deskripsi ketika card di hover
 function cardDescAppear(category, price, button) {
   if (
     category.classList.contains("catalog-description-disappear") &&
@@ -53,6 +71,6 @@ function cardDescAppear(category, price, button) {
   ) {
     category.classList.remove("catalog-description-disappear");
     price.classList.remove("catalog-description-disappear");
-    button.classList.add("card-button-disappear")
+    button.classList.add("card-button-disappear");
   }
 }

@@ -32,13 +32,49 @@
       </div>
     </nav>
 
-    <div id="sidebar">
-      <h3>CATALOG KANRE TIME: </h3>
-      <div id="sidebar-menu-container"></div>
+    <div id="sidebar" class="catalog-card-enter">
+      <h3>CATALOG KANRE TIME : </h3>
+      <div id="sidebar-menu-container">
+        <div id="sidebar-container01" class="sidebar-container-group">
+          <p>Category : </p>
+          <div id="category-container">
+            <div class="category-check">
+              <input type="checkbox">
+              <label for="" >Makanan Berat</label>
+            </div>
+            <div class="category-check">
+              <input type="checkbox">
+              <label for="" >Makanan Ringan</label>
+            </div>
+            <div class="category-check">
+              <input type="checkbox">
+              <label for="">Kue Kue</label>
+            </div>
+            <div class="category-check">
+              <input type="checkbox">
+              <label for="">Minuman</label>
+            </div>
+          </div>
+        </div>
+
+        <div id="sidebar-container02" class="sidebar-container-group">
+          <p>Rentang Harga : </p>
+          <div id="price-container">
+            <input type="number" autocomplete="off" placeholder="Harga Terendah"> </input>
+            <input type="number" autocomplete="off" placeholder="Harga Tertinggi"></input>
+          </div>
+        </div>
+
+        <div id="sidebar-container03" class="sidebar-container-group">
+          <p>Search Menu : </p>
+            <input type="text"  autocomplete="off" placeholder="Masukkan Keyword"> </input>
+        </div>
+        <button id="search-button">Search</button>
+      </div>
     </div>
 
     <div id="catalog-card-container">
-      <div class="catalog-card">
+      <div class="catalog-card catalog-card-enter">
         <img
           src="./assets/IMG/123c78e7-2e39-461d-80ea-be1c5ebb6dda.png"
           alt=""
@@ -52,7 +88,7 @@
           FREEEEEEE.......
         </button>
       </div>
-      <div class="catalog-card">
+      <div class="catalog-card catalog-card-enter">
         <span>- 50%</span>
         <img
           src="./assets/IMG/4556d540-24b9-4783-9a93-2a1417409153.png"
@@ -67,7 +103,7 @@
           ADD TO CART Rp 11.500
         </button>
       </div>
-      <div class="catalog-card">
+      <div class="catalog-card catalog-card-enter">
         <img
           src="./assets/IMG/66d86c69-d20c-4117-a72a-e1ed7481c12e.png"
           alt=""
@@ -81,7 +117,7 @@
           ADD TO CART Rp 31.500
         </button>
       </div>
-      <div class="catalog-card">
+      <div class="catalog-card catalog-card-enter">
         <img
           src="./assets/IMG/6854cbc3-2206-4ca2-879f-5a12dc0c0671.png"
           alt=""
@@ -95,7 +131,7 @@
           ADD TO CART Rp 47.000
         </button>
       </div>
-      <div class="catalog-card">
+      <div class="catalog-card catalog-card-enter">
         <img
           src="./assets/IMG/6dc329a3-9645-4b52-ade7-a629cbea0d81.png"
           alt=""
@@ -109,7 +145,7 @@
           ADD TO CART Rp 47.000
         </button>
       </div>
-      <div class="catalog-card">
+      <div class="catalog-card catalog-card-enter">
         <img
           src="./assets/IMG/84a2a237-f6b4-4bff-ae21-d1a420a6f889.png"
           alt=""
@@ -123,7 +159,7 @@
           ADD TO CART Rp 69.000
         </button>
       </div>
-      <div class="catalog-card">
+      <div class="catalog-card catalog-card-enter">
         <img
           src="./assets/IMG/A plate of food with a chicken vegetables and rice….png"
           alt=""
@@ -137,7 +173,7 @@
           ADD TO CART Rp 35.000
         </button>
       </div>
-      <div class="catalog-card">
+      <div class="catalog-card catalog-card-enter">
         <img
           src="./assets/IMG/ㅤ                😵_💫  ੈ _  𝑝͟𝑛͟𝑔   ✿⃨.png"
           alt=""
@@ -148,12 +184,12 @@
           <p id="catalog-card-harga-makanan">Rp 13.000</p>
         </div>
         <button id="card-add-to-cart-button" class="card-button-disappear">
-          ADD TO CART Rp 47.000
+          ADD TO CART Rp 13.000
         </button>
       </div>
       </div>
     </div>
-    <!-- TO DO Selesaikan Catalog Card dan jangan lupa animasi hover yang menghilangkan text dan memunculkan tombol -->
+    <!-- TO DO Selesaikan admin panel-->
 
     <script src="./main.js"></script>
   </body>

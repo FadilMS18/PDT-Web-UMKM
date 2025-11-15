@@ -1,29 +1,144 @@
+/* Sidebar CSS */
 #sidebar{
     top:65px;
     left:76px;
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     gap:20px;
-    
+    transition: .35s;
 }
 
 #sidebar > h3{
-    font-size: 28px;
+    font-size: 26px;
     transition: .25s;
-    position: fixed;
+    font-family: outfit;
 }
 
 #sidebar-menu-container{
-    position:fixed;
-    top:125px;
-    height: 625px;
-    width: 325px;
-    border-radius: 5px;
-    background-color: bisque;
+    border-radius: 10px;
+    background-color: rgb(250, 235, 220, .7);
     box-shadow: 0px 0px 20px -8px rgba(0, 0, 0, .3);
+    display: flex;
+    flex-direction: column;
+    padding:0 30px 65px ;
+    font-family: outfit;
 }
 
+.sidebar-container-group{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding:20px 0;
+    border-bottom: 3px solid black;
+}
+
+/* Category CSS */
+#category-container{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+
+.category-check {
+    display: flex;
+    align-items: center;
+    gap:15px;
+}
+
+.category-check > input{
+    width: 25px;
+    height: 25px;
+    border-radius: 10px;
+}
+
+.category-check > input:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 6px rgba(0, 0, 0, .2);
+}
+
+.category-check > label{
+    font-size: 16px
+}
+
+/* Price container CSS */
+#price-container{
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+    position: relative;
+}
+
+#price-container > input{
+    padding:15px 30px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    font-family: outfit;
+    letter-spacing: 1.5px;
+}
+
+/* Searchbar CSS */
+#sidebar-container03{
+    border: none;
+    padding-bottom: 30px;
+}
+
+#sidebar-container03 > input{
+    padding:15px 30px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    font-family: outfit;
+    letter-spacing: 1.5px;
+}
+
+#search-button{
+    position: absolute;
+    bottom: 25px;
+    right: 30px;
+    padding:10px 20px;
+    border: none;
+    border-radius: 7px;
+    font-family: outfit;
+    background-color: white;
+}
+
+#search-button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 6px rgba(0, 0, 0, .2);
+}
+
+/* Menghilangkan slider number pada input type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Joined Line CSS */
+.category-check > input,
+#price-container > input,
+#sidebar-container03 > input,
+#search-button {
+    cursor: pointer;
+    transition: .25s;
+}
+
+#price-container > input:hover,
+#sidebar-container03 > input:hover{
+    transform: scale(1.015);
+    box-shadow: 0 0 6px rgba(0, 0, 0, .2);
+
+}
+
+#price-container > input,
+#sidebar-container03 > input,
+#search-button{
+    box-shadow: 0 0 6px rgba(0, 0, 0, .1);
+}
+
+/* Catalog card CSS */
 #catalog-card-container{
     position: absolute;
     top:125px;
@@ -44,12 +159,16 @@
     padding: 5px 34px;
     border-radius: 10px;
     backdrop-filter: blur(100px);
-    background-color: rgba(255, 229, 208, 0.1);
+    background-color: rgb(250, 235, 220, .7);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, .1);
-    transition: .25s;
+    transition: .35s;
     position: relative;
 }
 
+.catalog-card-enter{
+    transform: translateY(250px);
+    opacity: .5;
+}
 
 .catalog-card:hover{
     transform: scale(1.005);
@@ -146,6 +265,6 @@
 }
 
 #card-add-to-cart-button.card-button-disappear{
-    transform: scale(0) translateY(20px);
+    transform: scale(0) translateY(50px);
     opacity: 0;
 }
