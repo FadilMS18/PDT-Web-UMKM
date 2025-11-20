@@ -1,7 +1,5 @@
 const sidebar = document.querySelector("#sidebar")
 const catalog = document.querySelector("#sidebar > h3");
-const stickyNav = document.querySelector("#sticky-nav");
-let prevScrollPos = window.pageYOffset;
 
 // Sticky navbar akan muncul jika kita mengscroll keatas dan hilkang kalau scroll kebawah
 function stickyNavbarShow() {
