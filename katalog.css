@@ -148,6 +148,7 @@ input::-webkit-inner-spin-button {
     gap: 20px;
     grid-template-columns: repeat(3, 325px);
     grid-auto-rows: 291px;
+    padding-bottom: 150px;
 }
 
 .catalog-card{
@@ -199,7 +200,7 @@ input::-webkit-inner-spin-button {
     right:10px;
     padding:10px;
     background-color: rgb(255, 66, 66);
-    font-family: roboto;
+    font-family: sans-serif;
     font-weight: bold;
     font-size: 12px;
     letter-spacing: 1.5px;
@@ -209,12 +210,12 @@ input::-webkit-inner-spin-button {
 #catalog-card-nama-makanan{
     font-family: outfit;
     font-size: 20px;
-    font-weight: 550;
+    font-weight: 700;
     
 }
 
 #catalog-card-kategori-makanan{
-    font-family: roboto;
+    font-family: sans-serif;
     font-size: 12px;
     color: #646464;
     transition: .25s;
@@ -245,7 +246,7 @@ input::-webkit-inner-spin-button {
     bottom:28px;
     left: 34px;
     right: 34px;
-    font-family: roboto;
+    font-family: sans-serif;
     font-weight: 550;
     letter-spacing: 1px;
     padding:12px ;

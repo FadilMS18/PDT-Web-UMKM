@@ -1,5 +1,8 @@
 const sidebar = document.querySelector("#sidebar")
 const catalog = document.querySelector("#sidebar > h3");
+const stickyNav = document.querySelector("#sticky-nav");
+const navbar1 = document.querySelector("#nav1");
+let prevScrollPos = window.pageYOffset;
 
 // Sticky navbar akan muncul jika kita mengscroll keatas dan hilkang kalau scroll kebawah
 function stickyNavbarShow() {
@@ -17,6 +20,15 @@ function stickyNavbarShow() {
     catalog.classList.remove("nav-start-disappear");
   }
 }
+
+function time() {
+  setTimeout(() => {
+    navbar1.classList.remove("nav-start-disappear");
+  }, 5);
+}
+
+document.addEventListener("DOMContentLoaded", time);
+
 
 document.addEventListener("scroll", stickyNavbarShow);
 
