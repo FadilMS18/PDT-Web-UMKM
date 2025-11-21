@@ -23,7 +23,12 @@ document.addEventListener("scroll", stickyNavbarShow);
 function time() {
   setTimeout(() => {
     navbar1.classList.remove("nav-start-disappear");
+    heroContainer.classList.remove("hero-container-enter")
   }, 5);
+
 }
 
 document.addEventListener("DOMContentLoaded", time);
+
+
+const heroContainer = document.querySelector("#hero-container")

@@ -136,6 +136,12 @@ header{
     flex-direction: column;
     gap:15px;
     color: white;
+    transition: .25s;
+}
+
+.hero-container-enter{
+    opacity: 0.5;
+    transform: translateX(-150px);
 }
 
 #hero-container > h1{
@@ -185,6 +191,8 @@ header{
     background-image: url(./assets/IMG/output-onlinepngtools.png);
 }
 
+
+
 #about-me-title{
     font-size: 96px;
     font-weight: bold;
@@ -198,6 +206,8 @@ header{
     letter-spacing: 25%;
     text-align: center;
 }
+
+
 
 #our-best-container{
     display: flex;
