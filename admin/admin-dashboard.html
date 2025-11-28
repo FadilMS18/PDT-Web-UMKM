@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>KanreTime — Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./admin-dashoard.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="logo">KT</div>
+          <div>
+            <h1>KanreTime</h1>
+            <p>Admin Panel</p>
+          </div>
+        </div>
+
+        <div class="section-title">Main</div>
+        <nav class="nav">
+          <a href="#" class="active">🏠 Dashboard</a>
+          <a href="#">🍽️ Menu Makanan</a>
+          <a href="#">📦 Kategori</a>
+          <a href="#">🧾 Pesanan</a>
+          <a href="#">👥 Customer</a>
+          <a href="#">⚙️ Pengaturan</a>
+        </nav>
+
+        <div class="section-title">Management</div>
+        <nav class="nav">
+          <a href="#">📤 Upload Banner</a>
+          <a href="#">📣 Promo</a>
+          <a href="#">📊 Laporan</a>
+        </nav>
+
+        <div class="logout">Keluar</div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+        <!-- TOPBAR -->
+        <div class="topbar">
+          <div id="left">
+            <button class="btn">☰</button>
+            <div style="font-weight: 700; font-size: 18px">Dashboard</div>
+          </div>
+
+          <div id="right">
+            <div class="search">
+              <!-- SVG Disini adalah gambar icon search di search bar -->
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                style="opacity: 0.8"
+              >
+                <path d="M21 21l-4.35-4.35"></path>
+                <circle cx="11" cy="11" r="6"></circle>
+              </svg>
+              <input placeholder="Cari menu, order atau pelanggan..." />
+            </div>
+
+            <div class="profile">
+              <div class="notif">
+                <!-- SVG Disini adalah gambar icon lonceng di samping search bar -->
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  style="opacity: 0.9"
+                >
+                  <path
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0 1 18 14.158V11a6 6 0 0 0-5-5.917V4a2 2 0 1 0-4 0v1.083A6 6 0 0 0 4 11v3.159c0 .538-.214 1.055-.595 1.436L2 17h5"
+                  ></path>
+                </svg>
+                <div class="dot"></div>
+              </div>
+              <div id="admin-info">
+                <div id="name">Mibe & PingPing</div>
+                <div id="mail" class="muted">kawan@Lamail.com</div>
+              </div>
+              <div class="avatar">A</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARDS -->
+        <section class="cards">
+          <div class="card">
+            <h4>Pesanan Hari Ini</h4>
+            <p id="today-orders">452</p>
+            <div class="muted">Total order masuk hari ini</div>
+          </div>
+
+          <div class="card">
+            <h4>Total Penjualan Bulanan</h4>
+            <p id="monthly-sales">Rp 12.450.000</p>
+            <div class="muted">Periode: Nov 2025</div>
+          </div>
+
+          <div class="card">
+            <h4>Menu Terlaris</h4>
+            <p id="top-menu">Coto Makassar</p>
+            <div class="muted">Berdasarkan 30 hari terakhir</div>
+          </div>
+
+          <div class="card">
+            <h4>Stok Menipis</h4>
+            <p id="low-stock">3 item</p>
+            <div class="muted">Periksa dan restock segera</div>
+          </div>
+        </section>
+
+        <!-- charts + small -->
+        <section class="grid-2">
+          <div class="chart-card">
+            <h4 style="margin-top: 0">Penjualan 30 Hari</h4>
+            <canvas id="lineChart" height="140"></canvas>
+          </div>
+
+          <div class="small-card">
+            <h4 style="margin-top: 0">Kategori Terlaris</h4>
+            <canvas id="pieChart" height="180"></canvas>
+
+            <div style="margin-top: 14px">
+              <h4 style="font-size: 13px; margin: 0">Latest Orders</h4>
+              <div class="muted" style="font-size: 13px; margin-top: 6px">
+                5 order terakhir ditampilkan
+              </div>
+              <ul style="margin: 10px 0; padding-left: 14px">
+                <li class="muted">
+                  Tony — Coto Makassar — <strong>Rp 25.000</strong>
+                </li>
+                <li class="muted">
+                  Mibe — Pallubasa — <strong>Rp 28.000</strong>
+                </li>
+                <li class="muted">
+                    PingPing — Sop Saudara — <strong>Rp 22.000</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- orders table -->
+        <section class="table-card">
+          <h4 style="margin-top: 0">Order Terbaru</h4>
+          <div style="overflow: auto; margin-top: 8px">
+            <div class="table-grid">
+              <!-- Header Baris Pertama Judul-->
+              <div class="header">Nama</div>
+              <div class="header">Menu</div>
+              <div class="header">Jumlah</div>
+              <div class="header">Harga</div>
+              <div class="header">Status</div>
+              <div class="header">Waktu</div>
+
+              <!-- Baris kedua Tony -->
+              <div class="cell">Tony</div>
+              <div class="cell">Coto Makassar</div>
+              <div class="cell">1</div>
+              <div class="cell">Rp 25.000</div>
+              <div class="cell">
+                <span class="status processing">Diproses</span>
+              </div>
+              <div class="cell">20-11-2025 - 11:23</div>
+
+              <!-- Baris ketiga Mibe -->
+              <div class="cell">Mibe</div>
+              <div class="cell">Pallubasa</div>
+              <div class="cell">2</div>
+              <div class="cell">Rp 56.000</div>
+              <div class="cell">
+                <span class="status completed">Selesai</span>
+              </div>
+              <div class="cell">19-11-2025 - 18:02</div>
+
+              <!-- Baris ke 4 Pingping -->
+              <div class="cell">Pingping</div>
+              <div class="cell">Sop Saudara</div>
+              <div class="cell">1</div>
+              <div class="cell">Rp 22.000</div>
+              <div class="cell">
+                <span class="status cancel">Dibatalkan</span>
+              </div>
+              <div class="cell">18-11-2025 - 13:12</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="menu-terlaris-container">
+          <!-- Big Left Terlaris -->
+          <div class="left">
+            <h3>Menu Terlaris</h3>
+            <div class="content">
+              <img src="./../assets/IMG/123c78e7-2e39-461d-80ea-be1c5ebb6dda.png" alt="foto makanan">
+              <div class="description">
+                <h4>Ramen Klasik</h4>
+                <p>Ramen Klasik adlah ramen mie buatan yan dibuat dari bahan ikan tuna yang kemudian dijadikan mie dibuat setiap hati tangan oleh tangan tangan profesional</p>
+                <p>Harga: Rp 27.000</p>
+                <p>Jumlah Pembelian : 142 Porsi</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kanan Terlaris tidak terlalu -->
+          <div class="right">
+            <div>
+              <img src="./../assets/IMG/4556d540-24b9-4783-9a93-2a1417409153.png" alt="">
+              <div class="description">
+                <h4>Bakmie Legendaris</h4>
+                <p>Harga : Rp. 23.000</p>
+                <p>Jumlah Pembelian : 139 Porsi</p>
+              </div>
+            </div>
+
+            <div>
+              <img src="./../assets/IMG/66d86c69-d20c-4117-a72a-e1ed7481c12e.png" alt="">
+              <div class="description">
+                <h4>Burger 2 Lantai</h4>
+                <p>Harga : Rp. 23.000</p>
+                <p>Jumlah Pembelian : 139 Porsi</p>
+              </div>
+            </div>
+
+            <div>
+              <img src="./../assets/IMG/6854cbc3-2206-4ca2-879f-5a12dc0c0671.png" alt="">
+              <div class="description">
+                <h4>Bakmie Legendaris</h4>
+                <p>Harga : Rp. 23.000</p>
+                <p>Jumlah Pembelian : 139 Porsi</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+      </main>
+    </div>
+
+    <!-- To doo edit thee tablee and add rekap penjualan -->
+    <!-- <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Safety helpers: pastikan elemen ada
+    const lineCanvas = document.getElementById('lineChart');
+    const pieCanvas  = document.getElementById('pieChart');
+
+    // Buat labels sample (30 hari)
+    const labels = Array.from({length:30}, (_,i)=>{
+      const d = new Date(); d.setDate(d.getDate() - (29 - i));
+      return (d.getMonth()+1) + '/' + d.getDate();
+    });
+
+    // LINE CHART (cek dulu elemen)
+    if (lineCanvas && lineCanvas.getContext) {
+      const lineCtx = lineCanvas.getContext('2d');
+      new Chart(lineCtx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Pendapatan (Rp)',
+            data: labels.map(()=> Math.floor(Math.random()*800000)+200000),
+            fill: true,
+            tension: 0.3,
+            backgroundColor: 'rgba(242,180,65,0.12)',
+            borderColor: 'rgba(242,180,65,0.95)',
+            pointRadius: 2
+          }]
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { display: false }, ticks: { maxTicksLimit: 8, color: '#a8b3bd' } },
+            y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#a8b3bd' } }
+          }
+        }
+      });
+    } else {
+      console.warn('lineChart canvas not found or unsupported context');
+    }
+
+    // PIE / DOUGHNUT CHART (cek dulu elemen)
+    if (pieCanvas && pieCanvas.getContext) {
+      const pieCtx = pieCanvas.getContext('2d');
+      new Chart(pieCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Makanan','Minuman','Camilan','Dessert'],
+          datasets: [{
+            data: [55,25,12,8],
+            backgroundColor: [
+              'rgba(242,180,65,0.95)',
+              'rgba(255,99,132,0.8)',
+              'rgba(54,162,235,0.8)',
+              'rgba(153,102,255,0.8)'
+            ]
+          }]
+        },
+        options: {
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { color: '#cbd6dc' }
+            }
+          }
+        }
+      });
+    } else {
+      console.warn('pieChart canvas not found or unsupported context');
+    }
+  });
+</script> -->
+  </body>
+</html>
