@@ -207,33 +207,33 @@ input::-webkit-inner-spin-button {
     border-radius: 10px;
 }
 
-#catalog-card-nama-makanan{
+.catalog-card-nama-makanan{
     font-family: outfit;
     font-size: 20px;
     font-weight: 700;
     
 }
 
-#catalog-card-kategori-makanan{
+.catalog-card-kategori-makanan{
     font-family: sans-serif;
     font-size: 12px;
     color: #646464;
     transition: .25s;
 }
 
-#catalog-card-harga-makanan{
+.catalog-card-harga-makanan{
     font-family: outfit;
     font-size: 16px;
     font-weight: bold;
     transition: .25s;
 }
 
-#catalog-card-harga-makanan.discount{
+.catalog-card-harga-makanan.discount{
     color: #969696;
     text-decoration:line-through;
 }
 
-#catalog-card-harga-makanan > span{
+.catalog-card-harga-makanan > span{
     color: rgb(255, 39, 39);
     display: inline-block;
     text-decoration: none;

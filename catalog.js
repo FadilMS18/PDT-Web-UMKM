@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Animasi yang memunculkan tombol add to cart
 catalogCard.forEach((card, index) => {
-  const kategori = card.querySelector("#catalog-card-kategori-makanan");
-  const harga = card.querySelector("#catalog-card-harga-makanan");
+  const kategori = card.querySelector(".catalog-card-kategori-makanan");
+  const harga = card.querySelector(".catalog-card-harga-makanan");
   const button = card.querySelector("#card-add-to-cart-button");
   card.addEventListener("mouseover", () =>
     cardDescDisappear(kategori, harga, button)
