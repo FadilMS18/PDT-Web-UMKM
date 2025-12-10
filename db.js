@@ -5,60 +5,67 @@ const foods = [
     name: "RAMEN KLASIK",
     price: "0", // Atau "Gratis" sesuai tampilan
     category: "Makanan Berat",
-    image: "./assets/IMG/123c78e7-2e39-461d-80ea-be1c5ebb6dda.png"
+    image: "./assets/IMG/123c78e7-2e39-461d-80ea-be1c5ebb6dda.png",
+    discount: 0,
   },
   {
     id: 2,
     name: "BAKMI AYAM",
     price: "11.500", // Harga diskon
     category: "Makanan Berat",
-    image: "./assets/IMG/4556d540-24b9-4783-9a93-2a1417409153.png"
+    image: "./assets/IMG/4556d540-24b9-4783-9a93-2a1417409153.png",
+    discount: 0,
   },
   {
     id: 3,
     name: "BURGER 2 LANTAI",
     price: "31.500",
     category: "Makanan Berat",
-    image: "./assets/IMG/66d86c69-d20c-4117-a72a-e1ed7481c12e.png"
+    image: "./assets/IMG/66d86c69-d20c-4117-a72a-e1ed7481c12e.png",
+    discount: 0,
   },
   {
     id: 4,
     name: "NASI GORENG CENTURY",
     price: "27.000",
     category: "Makanan Berat",
-    image: "./assets/IMG/6854cbc3-2206-4ca2-879f-5a12dc0c0671.png"
+    image: "./assets/IMG/6854cbc3-2206-4ca2-879f-5a12dc0c0671.png",
+    discount: 0,
   },
   {
     id: 5,
     name: "PIZZA TARIK MENARIK",
     price: "47.000",
     category: "Makanan Berat",
-    image: "./assets/IMG/6dc329a3-9645-4b52-ade7-a629cbea0d81.png"
+    image: "./assets/IMG/6dc329a3-9645-4b52-ade7-a629cbea0d81.png",
+    discount: 0,
   },
   {
     id: 6,
     name: "HEALTHY REAL FOOD",
     price: "69.000",
     category: "Makanan Berat",
-    image: "./assets/IMG/84a2a237-f6b4-4bff-ae21-d1a420a6f889.png"
+    image: "./assets/IMG/84a2a237-f6b4-4bff-ae21-d1a420a6f889.png",
+    discount: 0,
   },
   {
     id: 7,
     name: "AYAM & SAYUR",
     price: "35.000",
     category: "Makanan Berat",
-    image: "./assets/IMG/A plate of food with a chicken vegetables and rice….png"
+    image:
+      "./assets/IMG/A plate of food with a chicken vegetables and rice….png",
+    discount: 0,
   },
   {
     id: 8,
     name: "DIM TO SUM",
     price: "13.000",
     category: "Makanan Ringan",
-    image: "./assets/IMG/ㅤ                😵_💫  ੈ _  𝑝͟𝑛͟𝑔   ✿⃨.png"
+    image: "./assets/IMG/ㅤ                😵_💫  ੈ _  𝑝͟𝑛͟𝑔   ✿⃨.png",
+    discount: 0,
   },
 ];
-
-console.log(foods);
 
 // Fungsi helper untuk cek apakah query adalah subsequence dari name (case-insensitive)
 function isSubsequence(query, name) {
@@ -91,9 +98,8 @@ console.log(filter("ia", foods)); // Hanya Ikan
 console.log(filter("aaa", foods)); // Tidak ada yang muncul
 
 const catalogContainer = document.querySelector("#catalog-card-container");
-console.log(catalogContainer);
 
-function makeCatalogCard(nama, kategori, harga, imageSRC) {
+function makeCatalogCard(name, category, price, imageSRC) {
   const card = makeADiv();
   card.classList.add("catalog-card");
   card.classList.add("catalog-card-enter");
@@ -106,27 +112,24 @@ function makeCatalogCard(nama, kategori, harga, imageSRC) {
 
   const cardDescContainer = makeADiv();
   cardDescContainer.classList.add("desc-container");
-  let namaMakanan = makeAPara("catalog-card-nama-makanan", nama);
-  let kategoriMakanan = makeAPara("catalog-card-kategori-makanan", kategori);
-  let hargaMakanan = makeAPara("catalog-card-harga-makanan", `RP ${harga}`);
-  cardDescContainer.appendChild(namaMakanan);
-  cardDescContainer.appendChild(kategoriMakanan);
-  cardDescContainer.appendChild(hargaMakanan);
+  let foodName = makeAPara("catalog-card-nama-makanan", name);
+  let foodCategory = makeAPara("catalog-card-kategori-makanan", category);
+  let foodPrice = makeAPara("catalog-card-harga-makanan", `RP ${price}`);
+
+  cardDescContainer.append(foodName, foodCategory, foodPrice);
 
   const button = document.createElement("button");
-  button.textContent = `Add To Cart Rp ${harga}`;
+  button.textContent = `ADD TO CART Rp ${price}`;
   button.classList.add("card-button-disappear");
   button.setAttribute("id", "card-add-to-cart-button");
 
-  card.appendChild(img);
-  card.appendChild(cardDescContainer);
-  card.appendChild(button);
+  card.append(img, cardDescContainer, button);
 
   card.addEventListener("mouseover", () =>
-    cardDescDisappear(kategoriMakanan, hargaMakanan, button)
+    cardDescDisappear(foodCategory, foodPrice, button)
   );
   card.addEventListener("mouseout", () =>
-    cardDescAppear(kategoriMakanan, hargaMakanan, button)
+    cardDescAppear(foodCategory, foodPrice, button)
   );
 
   return card;
@@ -138,9 +141,9 @@ function makeADiv() {
 }
 
 function makeAPara(clas, content) {
-  const para = document.createElement("para");
+  const para = document.createElement("p");
   para.textContent = content;
-  para.classList.add(clas)
+  para.classList.add(clas);
   return para;
 }
 
@@ -168,22 +171,20 @@ const searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", () => {
   const searchBar = document.querySelector("#search-bar");
   let results = filter(searchBar.value, foods);
-  console.log(searchBar.value);
-  console.log(results.length)
   catalogContainer.innerHTML = "";
-  if(!results.length){
-    catalogContainer.innerHTML = `<h1 style="font-size:3rem; margin-bottom:25px"> Tidak Ada Makanan Yang Cocok</h1> <img
-          src="./assets/IMG/yaki mappikkiri.jpg"
-          alt=""
-          style="width:650px; border-radius:10px; box-shadow:0 0 12px rgba(0, 0, 0, .3)"
-        />`
-    catalogContainer.classList = ""
-    catalogContainer.style.cssText = "display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:outfit; "
-  }else{
-    results.forEach((result) =>{
-    let card = makeCatalogCard(result.name, result.category, result.price, result.image)
-    catalogContainer.appendChild(card)
-  })
+  if (!results.length) {
+    catalogContainer.innerHTML = `<h1 class="no-search">Tidak Ada Makanan Yang Cocok</h1> <img class="no-search" src="./assets/IMG/yaki mappikkiri.jpg">`;
+    catalogContainer.classList.add("no-result");
+  } else {
+    catalogContainer.classList = "";
+    results.forEach((result) => {
+      let card = makeCatalogCard(
+        result.name,
+        result.category,
+        result.price,
+        result.image
+      );
+      catalogContainer.appendChild(card);
+    });
   }
-  
 });

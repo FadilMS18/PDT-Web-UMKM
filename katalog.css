@@ -1,76 +1,76 @@
 /* Sidebar CSS */
-#sidebar{
-    top:65px;
-    left:76px;
+#sidebar {
+    top: 65px;
+    left: 76px;
     position: fixed;
     display: flex;
     flex-direction: column;
-    gap:20px;
+    gap: 20px;
     transition: .35s;
 }
 
-#sidebar > h3{
+#sidebar>h3 {
     font-size: 26px;
     transition: .25s;
     font-family: outfit;
 }
 
-#sidebar-menu-container{
+#sidebar-menu-container {
     border-radius: 10px;
     background-color: rgb(250, 235, 220, .7);
     box-shadow: 0px 0px 20px -8px rgba(0, 0, 0, .3);
     display: flex;
     flex-direction: column;
-    padding:0 30px 65px ;
+    padding: 0 30px 65px;
     font-family: outfit;
 }
 
-.sidebar-container-group{
+.sidebar-container-group {
     display: flex;
     flex-direction: column;
-    gap:20px;
-    padding:20px 0;
+    gap: 20px;
+    padding: 20px 0;
     border-bottom: 3px solid black;
 }
 
 /* Category CSS */
-#category-container{
+#category-container {
     display: flex;
     flex-direction: column;
-    gap:15px;
+    gap: 15px;
 }
 
 .category-check {
     display: flex;
     align-items: center;
-    gap:15px;
+    gap: 15px;
 }
 
-.category-check > input{
+.category-check>input {
     width: 25px;
     height: 25px;
     border-radius: 10px;
 }
 
-.category-check > input:hover {
+.category-check>input:hover {
     transform: scale(1.05);
     box-shadow: 0 0 6px rgba(0, 0, 0, .2);
 }
 
-.category-check > label{
+.category-check>label {
     font-size: 16px
 }
 
 /* Price container CSS */
-#price-container{
+#price-container {
     display: flex;
     flex-direction: column;
-    gap:25px;
+    gap: 25px;
     position: relative;
 }
 
-#price-container > input{
-    padding:15px 30px;
+#price-container>input {
+    padding: 15px 30px;
     border-radius: 7px;
     border: none;
     outline: none;
@@ -79,13 +79,13 @@
 }
 
 /* Searchbar CSS */
-#sidebar-container03{
+#sidebar-container03 {
     border: none;
     padding-bottom: 30px;
 }
 
-#sidebar-container03 > input{
-    padding:15px 30px;
+#sidebar-container03>input {
+    padding: 15px 30px;
     border-radius: 7px;
     border: none;
     outline: none;
@@ -93,18 +93,18 @@
     letter-spacing: 1.5px;
 }
 
-#search-button{
+#search-button {
     position: absolute;
     bottom: 25px;
     right: 30px;
-    padding:10px 20px;
+    padding: 10px 20px;
     border: none;
     border-radius: 7px;
     font-family: outfit;
     background-color: white;
 }
 
-#search-button:hover{
+#search-button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 6px rgba(0, 0, 0, .2);
 }
@@ -112,38 +112,38 @@
 /* Menghilangkan slider number pada input type number */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Joined Line CSS */
-.category-check > input,
-#price-container > input,
-#sidebar-container03 > input,
+.category-check>input,
+#price-container>input,
+#sidebar-container03>input,
 #search-button {
     cursor: pointer;
     transition: .25s;
 }
 
-#price-container > input:hover,
-#sidebar-container03 > input:hover{
+#price-container>input:hover,
+#sidebar-container03>input:hover {
     transform: scale(1.015);
     box-shadow: 0 0 6px rgba(0, 0, 0, .2);
 
 }
 
-#price-container > input,
-#sidebar-container03 > input,
-#search-button{
+#price-container>input,
+#sidebar-container03>input,
+#search-button {
     box-shadow: 0 0 6px rgba(0, 0, 0, .1);
 }
 
 /* Catalog card CSS */
-#catalog-card-container{
+#catalog-card-container {
     position: absolute;
-    top:125px;
-    left:421px;
-    right:76px;
+    top: 125px;
+    left: 421px;
+    right: 76px;
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(3, 325px);
@@ -151,11 +151,50 @@ input::-webkit-inner-spin-button {
     padding-bottom: 150px;
 }
 
-.catalog-card{
+#catalog-card-container.no-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: outfit;
+}
+
+.no-search {
+    animation: fadeIn .45s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(75px);
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+h1.no-search {
+    font-size: 3rem;
+    margin-bottom: 25px
+}
+
+img.no-search {
+    width: 650px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .3)
+}
+
+.no-display {
+    display: none;
+    opacity: 0;
+}
+
+.catalog-card {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    gap:10px;
+    gap: 10px;
     align-items: start;
     padding: 5px 34px;
     border-radius: 10px;
@@ -166,39 +205,39 @@ input::-webkit-inner-spin-button {
     position: relative;
 }
 
-.catalog-card-enter{
+.catalog-card-enter {
     transform: translateY(250px);
     opacity: .5;
 }
 
-.catalog-card:hover{
+.catalog-card:hover {
     transform: scale(1.005);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, .2);
 }
 
-.catalog-description-disappear{
+.catalog-description-disappear {
     transform: translateY(10px) translateX(20px) scale(0.8);
     opacity: 0;
 }
 
-.catalog-card > img {
+.catalog-card>img {
     width: 175px;
     align-self: center;
 }
 
-.catalog-card > .desc-container{
+.catalog-card>.desc-container {
     display: flex;
     flex-direction: column;
-    gap:5px;
+    gap: 5px;
     transition: .25s;
     letter-spacing: 1px;
 }
 
-.catalog-card > span{
+.catalog-card>span {
     position: absolute;
-    top:10px;
-    right:10px;
-    padding:10px;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
     background-color: rgb(255, 66, 66);
     font-family: sans-serif;
     font-weight: bold;
@@ -207,49 +246,49 @@ input::-webkit-inner-spin-button {
     border-radius: 10px;
 }
 
-.catalog-card-nama-makanan{
+.catalog-card-nama-makanan {
     font-family: outfit;
     font-size: 20px;
     font-weight: 700;
-    
+
 }
 
-.catalog-card-kategori-makanan{
+.catalog-card-kategori-makanan {
     font-family: sans-serif;
     font-size: 12px;
     color: #646464;
     transition: .25s;
 }
 
-.catalog-card-harga-makanan{
+.catalog-card-harga-makanan {
     font-family: outfit;
     font-size: 16px;
     font-weight: bold;
     transition: .25s;
 }
 
-.catalog-card-harga-makanan.discount{
+.catalog-card-harga-makanan.discount {
     color: #969696;
-    text-decoration:line-through;
+    text-decoration: line-through;
 }
 
-.catalog-card-harga-makanan > span{
+.catalog-card-harga-makanan>span {
     color: rgb(255, 39, 39);
     display: inline-block;
     text-decoration: none;
-    margin-left:10px;
+    margin-left: 10px;
     font-size: 20px;
 }
 
-#card-add-to-cart-button{
+#card-add-to-cart-button {
     position: absolute;
-    bottom:28px;
+    bottom: 28px;
     left: 34px;
     right: 34px;
     font-family: sans-serif;
     font-weight: 550;
     letter-spacing: 1px;
-    padding:12px ;
+    padding: 12px;
     background-color: #FF7B54;
     border-radius: 10px;
     border: 1px solid black;
@@ -260,11 +299,11 @@ input::-webkit-inner-spin-button {
     opacity: 1;
 }
 
-#card-add-to-cart-button:hover{
+#card-add-to-cart-button:hover {
     transform: scale(1.02);
 }
 
-#card-add-to-cart-button.card-button-disappear{
+#card-add-to-cart-button.card-button-disappear {
     transform: scale(0) translateY(50px);
     opacity: 0;
 }
