@@ -3,7 +3,7 @@ const foods = [
   {
     id: 1,
     name: "RAMEN KLASIK",
-    price: "0", // Atau "Gratis" sesuai tampilan
+    price: 0, // Atau "Gratis" sesuai tampilan
     category: "Makanan Berat",
     image: "./assets/IMG/123c78e7-2e39-461d-80ea-be1c5ebb6dda.png",
     discount: 0,
@@ -11,7 +11,7 @@ const foods = [
   {
     id: 2,
     name: "BAKMI AYAM",
-    price: "11.500", // Harga diskon
+    price: 11500, // Harga diskon
     category: "Makanan Berat",
     image: "./assets/IMG/4556d540-24b9-4783-9a93-2a1417409153.png",
     discount: 0,
@@ -19,7 +19,7 @@ const foods = [
   {
     id: 3,
     name: "BURGER 2 LANTAI",
-    price: "31.500",
+    price: 31500,
     category: "Makanan Berat",
     image: "./assets/IMG/66d86c69-d20c-4117-a72a-e1ed7481c12e.png",
     discount: 0,
@@ -27,7 +27,7 @@ const foods = [
   {
     id: 4,
     name: "NASI GORENG CENTURY",
-    price: "27.000",
+    price: 27000,
     category: "Makanan Berat",
     image: "./assets/IMG/6854cbc3-2206-4ca2-879f-5a12dc0c0671.png",
     discount: 0,
@@ -35,7 +35,7 @@ const foods = [
   {
     id: 5,
     name: "PIZZA TARIK MENARIK",
-    price: "47.000",
+    price: 47000,
     category: "Makanan Berat",
     image: "./assets/IMG/6dc329a3-9645-4b52-ade7-a629cbea0d81.png",
     discount: 0,
@@ -43,7 +43,7 @@ const foods = [
   {
     id: 6,
     name: "HEALTHY REAL FOOD",
-    price: "69.000",
+    price: 69.000,
     category: "Makanan Berat",
     image: "./assets/IMG/84a2a237-f6b4-4bff-ae21-d1a420a6f889.png",
     discount: 0,
@@ -51,7 +51,7 @@ const foods = [
   {
     id: 7,
     name: "AYAM & SAYUR",
-    price: "35.000",
+    price: 35000,
     category: "Makanan Berat",
     image:
       "./assets/IMG/A plate of food with a chicken vegetables and rice….png",
@@ -60,7 +60,7 @@ const foods = [
   {
     id: 8,
     name: "DIM TO SUM",
-    price: "13.000",
+    price: 13000,
     category: "Makanan Ringan",
     image: "./assets/IMG/ㅤ                😵_💫  ੈ _  𝑝͟𝑛͟𝑔   ✿⃨.png",
     discount: 0,
