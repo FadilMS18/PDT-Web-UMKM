@@ -347,4 +347,15 @@ header{
     color: white;
 }
 
+[data-animate] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+[data-animate].active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Margin kiri kanan 80px atau 5% untuk responsive */

@@ -32,3 +32,18 @@ document.addEventListener("DOMContentLoaded", time);
 
 
 const heroContainer = document.querySelector("#hero-container")
+
+async function ambilDataProduk() {
+    try {
+        // Minta data ke server backend yang kita buat tadi
+        const respon = await fetch('http://localhost:3000/api/produk');
+        const data = await respon.json();
+
+        console.log("Data dari database:", data);
+        // Di sini nanti kamu buat kode untuk menampilkan ke layar HTML
+    } catch (error) {
+        console.error("Gagal mengambil data:", error);
+    }
+}
+
+ambilDataProduk();

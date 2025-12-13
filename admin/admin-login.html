@@ -10,9 +10,21 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #f6f8fb;
+      background: rgb(250, 235, 220, .7);
       margin: 0;
       padding: 0;
+      position: relative;
+    }
+
+    body::before{
+      background: url(./../assets/IMG/output-onlinepngtools.png);
+      content: "";
+      position: absolute;
+      top: 0;
+      left:0;
+      right: 0;
+      height: 100%;
+      z-index: -1;
     }
 
     .container {

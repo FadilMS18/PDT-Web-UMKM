@@ -167,7 +167,6 @@ function cardDescAppear(category, price, button) {
 }
 
 const searchButton = document.querySelector("#search-button");
-
 searchButton.addEventListener("click", () => {
   const searchBar = document.querySelector("#search-bar");
   let results = filter(searchBar.value, foods);
@@ -188,3 +187,5 @@ searchButton.addEventListener("click", () => {
     });
   }
 });
+
+
