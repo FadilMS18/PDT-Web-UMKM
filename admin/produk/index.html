@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>KanreTime - Menu Produk</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./produk.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo">KT</div>
+          <div>
+            <h1>KanreTime</h1>
+            <p>Admin Panel</p>
+          </div>
+        </div>
+
+        <div class="section-title">Main</div>
+        <nav class="nav">
+          <a href="./../admin-dashboard.html">🏠 Dashboard</a>
+          <a href="#" class="active">🍽️ Menu Makanan</a>
+          <a href="#">📦 Kategori</a>
+          <a href="#">🧾 Pesanan</a>
+          <a href="#">👥 Customer</a>
+          <a href="#">⚙️ Pengaturan</a>
+        </nav>
+
+        <div class="section-title">Management</div>
+        <nav class="nav">
+          <a href="#">📤 Upload Banner</a>
+          <a href="#">📣 Promo</a>
+          <a href="./../rekap/rekap.html">📊 Laporan</a>
+        </nav>
+
+        <div class="logout">Keluar</div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+        <!-- TOPBAR -->
+        <div class="topbar">
+          <div id="left">
+            <button class="btn">☰</button>
+            <div style="font-weight: 700; font-size: 18px">Menu Produk</div>
+          </div>
+
+          <div id="right">
+            <div class="search">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                style="opacity: 0.8"
+              >
+                <path d="M21 21l-4.35-4.35"></path>
+                <circle cx="11" cy="11" r="6"></circle>
+              </svg>
+              <input placeholder="Cari menu makanan..." id="searchInput" />
+            </div>
+
+            <div class="profile">
+              <div class="notif">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  style="opacity: 0.9"
+                >
+                  <path
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0 1 18 14.158V11a6 6 0 0 0-5-5.917V4a2 2 0 1 0-4 0v1.083A6 6 0 0 0 4 11v3.159c0 .538-.214 1.055-.595 1.436L2 17h5"
+                  ></path>
+                </svg>
+                <div class="dot"></div>
+              </div>
+              <div id="admin-info">
+                <div id="name">Mibe & PingPing</div>
+                <div id="mail" class="muted">kawan@Lamail.com</div>
+              </div>
+              <div class="avatar">A</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HEADER SECTION -->
+        <div class="header-section">
+          <div>
+            <h2 style="margin-bottom: 4px">Kelola Menu Produk</h2>
+            <p class="muted">Tambah, edit, dan hapus menu makanan</p>
+          </div>
+          <button class="btn-primary" onclick="openModal()">
+            + Tambah Produk
+          </button>
+        </div>
+
+        <!-- FILTER SECTION -->
+        <div class="filter-section">
+          <span class="muted">Filter:</span>
+          <select id="categoryFilter" onchange="filterProducts()">
+            <option value="all">Semua Kategori</option>
+            <option value="Makanan">Makanan</option>
+            <option value="Minuman">Minuman</option>
+            <option value="Camilan">Camilan</option>
+            <option value="Dessert">Dessert</option>
+          </select>
+          <select id="stockFilter" onchange="filterProducts()">
+            <option value="all">Semua Stok</option>
+            <option value="available">Tersedia</option>
+            <option value="low">Stok Menipis (&lt;10)</option>
+            <option value="empty">Habis</option>
+          </select>
+        </div>
+
+        <!-- PRODUCTS GRID -->
+        <div class="products-grid" id="productsGrid"></div>
+      </main>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="productModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modalTitle">Tambah Produk Baru</h2>
+          <button class="close-modal" onclick="closeModal()">×</button>
+        </div>
+
+        <div class="form-group">
+          <label>Nama Produk</label>
+          <input
+            type="text"
+            id="productName"
+            placeholder="Contoh: Coto Makassar"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Kategori</label>
+          <select id="productCategory">
+            <option value="Makanan">Makanan</option>
+            <option value="Minuman">Minuman</option>
+            <option value="Camilan">Camilan</option>
+            <option value="Dessert">Dessert</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Harga (Rp)</label>
+          <input type="number" id="productPrice" placeholder="25000" />
+        </div>
+
+        <div class="form-group">
+          <label>Stok</label>
+          <input type="number" id="productStock" placeholder="50" />
+        </div>
+
+        <div class="form-group">
+          <label>Deskripsi</label>
+          <textarea
+            id="productDescription"
+            placeholder="Deskripsi singkat tentang produk..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Gambar Produk</label>
+          <input
+            type="file"
+            id="productImage"
+            accept="image/*"
+            onchange="previewImage(event)"
+          />
+          <div class="image-preview" id="imagePreview">
+            <span>Preview gambar akan muncul di sini</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn-cancel" onclick="closeModal()">Batal</button>
+          <button class="btn-submit" onclick="saveProduct()">
+            Simpan Produk
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./produk.js"></script>
+  </body>
+</html>

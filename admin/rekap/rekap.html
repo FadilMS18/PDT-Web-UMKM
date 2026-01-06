@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>KanreTime - Rekap Penjualan</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="./rekap.css" />
+    <script src="./rekap.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo">KT</div>
+          <div>
+            <h1>KanreTime</h1>
+            <p>Admin Panel</p>
+          </div>
+        </div>
+
+        <div class="section-title">Main</div>
+        <nav class="nav">
+          <a href="./../admin-dashboard.html">🏠 Dashboard</a>
+          <a href="./../produk/">🍽️ Menu Makanan</a>
+          <a href="#">📦 Kategori</a>
+          <a href="#">🧾 Pesanan</a>
+          <a href="#">👥 Customer</a>
+          <a href="#">⚙️ Pengaturan</a>
+        </nav>
+
+        <div class="section-title">Management</div>
+        <nav class="nav">
+          <a href="#">📤 Upload Banner</a>
+          <a href="#">📣 Promo</a>
+          <a href="#" class="active">📊 Laporan</a>
+        </nav>
+
+        <div class="logout">Keluar</div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+        <!-- TOPBAR -->
+        <div class="topbar">
+          <div id="left">
+            <button class="btn">☰</button>
+            <div style="font-weight: 700; font-size: 18px">Rekap Penjualan</div>
+          </div>
+
+          <div id="right">
+            <div class="search">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                style="opacity: 0.8"
+              >
+                <path d="M21 21l-4.35-4.35"></path>
+                <circle cx="11" cy="11" r="6"></circle>
+              </svg>
+              <input placeholder="Cari transaksi..." id="searchInput" />
+            </div>
+
+            <div class="profile">
+              <div class="notif">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  style="opacity: 0.9"
+                >
+                  <path
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0 1 18 14.158V11a6 6 0 0 0-5-5.917V4a2 2 0 1 0-4 0v1.083A6 6 0 0 0 4 11v3.159c0 .538-.214 1.055-.595 1.436L2 17h5"
+                  ></path>
+                </svg>
+                <div class="dot"></div>
+              </div>
+              <div id="admin-info">
+                <div id="name">Mibe & PingPing</div>
+                <div id="mail" class="muted">kawan@Lamail.com</div>
+              </div>
+              <div class="avatar">A</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HEADER -->
+        <div class="header-section">
+          <div>
+            <h2 style="margin-bottom: 4px">Rekap Penjualan</h2>
+            <p class="muted">Laporan lengkap penjualan dan transaksi</p>
+          </div>
+        </div>
+
+        <!-- FILTER -->
+        <div class="filter-group">
+          <span class="muted">Periode:</span>
+          <select id="periodFilter" onchange="filterData()">
+            <option value="today">Hari Ini</option>
+            <option value="week">7 Hari Terakhir</option>
+            <option value="month" selected>30 Hari Terakhir</option>
+            <option value="year">Tahun Ini</option>
+            <option value="custom">Custom</option>
+          </select>
+          <input type="date" id="startDate" style="display: none" />
+          <input type="date" id="endDate" style="display: none" />
+          <select id="statusFilter" onchange="filterData()">
+            <option value="all">Semua Status</option>
+            <option value="completed">Selesai</option>
+            <option value="pending">Pending</option>
+            <option value="cancelled">Dibatalkan</option>
+          </select>
+          <button class="btn-export" onclick="exportData()">
+            📥 Export Excel
+          </button>
+        </div>
+
+        <!-- STATS CARDS -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon revenue">💰</div>
+            <div class="stat-label">Total Pendapatan</div>
+            <div class="stat-value" id="totalRevenue">Rp 18.450.000</div>
+            <div class="stat-change up">↑ 12.5% dari periode sebelumnya</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon orders">📦</div>
+            <div class="stat-label">Total Pesanan</div>
+            <div class="stat-value" id="totalOrders">1,248</div>
+            <div class="stat-change up">↑ 8.3% dari periode sebelumnya</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon avg">📊</div>
+            <div class="stat-label">Rata-rata Transaksi</div>
+            <div class="stat-value" id="avgTransaction">Rp 14.783</div>
+            <div class="stat-change down">↓ 2.1% dari periode sebelumnya</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon growth">📈</div>
+            <div class="stat-label">Tingkat Sukses</div>
+            <div class="stat-value" id="successRate">94.2%</div>
+            <div class="stat-change up">↑ 1.8% dari periode sebelumnya</div>
+          </div>
+        </div>
+
+        <!-- CHARTS SECTION -->
+        <div class="charts-section">
+          <div class="chart-card">
+            <h3>Grafik Penjualan Harian</h3>
+            <canvas id="salesChart" height="80"></canvas>
+          </div>
+
+          <div class="chart-card">
+            <h3>Kategori Terlaris</h3>
+            <canvas id="categoryChart" height="80"></canvas>
+          </div>
+        </div>
+
+        <!-- TOP PRODUCTS -->
+        <div class="top-products">
+          <h3 style="margin-bottom: 18px">Top 5 Produk Terlaris</h3>
+          <div id="topProductsList"></div>
+        </div>
+
+        <!-- TRANSACTIONS TABLE -->
+        <div class="transactions-table">
+          <h3 style="margin-bottom: 18px">Riwayat Transaksi</h3>
+          <div class="table-grid" id="transactionsTable"></div>
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

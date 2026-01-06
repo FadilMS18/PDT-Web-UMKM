@@ -12,7 +12,7 @@
         <a href="#">Home</a>
         <a href="#our-best-container">Best from us</a>
         <a href="#about-me-container">About us</a>
-        <a href="./katalog.html">Catalog</a>
+        <a href="./catalog/katalog.html">Catalog</a>
       </div>
       <div id="nav-right">
         <h2>KANRE TIME</h2>
@@ -24,7 +24,7 @@
         <a href="#">Home</a>
         <a href="#our-best-container">Best from us</a>
         <a href="#about-me-container">About us</a>
-        <a href="./katalog.html">Catalog</a>
+        <a href="./catalog/katalog.html">Catalog</a>
       </div>
       <div id="sticky-nav-right">
         <h2>KANRE TIME</h2>
@@ -38,12 +38,12 @@
         <p id="punchline">Kuliner Khas Bugis, Asli & Autentik</p>
         <p>Apapun Masalahnya Jangan Lupa Isi Perut di Waktu Makan</p>
         <div id="hero-button-container">
-          <button id="call-action" class="call-to-action-group">
-            Pesan Sekarang
-          </button>
-          <button id="shadow-action" class="call-to-action-group">
+          <a href="./cart/" id="call-action" class="call-to-action-group">
+            Lihat Keranjang
+          </a>
+          <a href="./catalog/katalog.html" id="shadow-action" class="call-to-action-group">
             Daftar Menu
-          </button>
+          </a>
         </div>
         <p>🍽️ 100% Halal 👨‍🍳 Resep Turun Temurun 🚚 Delivery Cepat</p>
       </div>
@@ -133,11 +133,6 @@
           cita rasa Bugis dengan bahan terbaik dan rasa yang tidak pernah
           berubah.
         </p>
-        <p>
-          <a href="https://github.com/FadilMS18/PDT-Web-UMKM"
-            >Click Here to See Source Code</a
-          >
-        </p>
       </div>
 
       <div id="footer-navigation-menu" data-animate>
@@ -146,7 +141,7 @@
           <li><a href="#">Home</a></li>
           <li><a href="./index.html#about-me-container">About Us</a></li>
           <li><a href="./index.html#our-best-container">Best of Us</a></li>
-          <li><a href="./katalog.html">Catalog</a></li>
+          <li><a href="./catalog/katalog.html">Catalog</a></li>
           <li>
             <a href="./admin/admin-dashboard.html" target="_blank"
               >Admin Dashboard</a
@@ -154,6 +149,7 @@
           </li>
         </ul>
       </div>
+
       <div id="footer-navigation-menu" data-animate>
         <h3>Kelompok 2</h3>
         <ul>
@@ -163,6 +159,10 @@
           <li><a href="#">Muzakkir</a></li>
           <li><a href="#">Firmansyah Umar</a></li>
         </ul>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 KANRETIME. All rights reserved dari kelompok 2.</p>
       </div>
     </footer>
 
@@ -174,7 +174,7 @@
             if (entry.isIntersecting) entry.target.classList.add("active");
           });
         },
-        { threshold: 0.6 }
+        { threshold: 0.5 }
       );
 
       document

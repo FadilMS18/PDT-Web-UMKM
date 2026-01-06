@@ -5,7 +5,7 @@ const foods = [
     name: "RAMEN KLASIK",
     price: 0, // Atau "Gratis" sesuai tampilan
     category: "Makanan Berat",
-    image: "./assets/IMG/123c78e7-2e39-461d-80ea-be1c5ebb6dda.png",
+    image: "./../assets/IMG/123c78e7-2e39-461d-80ea-be1c5ebb6dda.png",
     discount: 0,
   },
   {
@@ -13,7 +13,7 @@ const foods = [
     name: "BAKMI AYAM",
     price: 11500, // Harga diskon
     category: "Makanan Berat",
-    image: "./assets/IMG/4556d540-24b9-4783-9a93-2a1417409153.png",
+    image: "./../assets/IMG/4556d540-24b9-4783-9a93-2a1417409153.png",
     discount: 0,
   },
   {
@@ -21,7 +21,7 @@ const foods = [
     name: "BURGER 2 LANTAI",
     price: 31500,
     category: "Makanan Berat",
-    image: "./assets/IMG/66d86c69-d20c-4117-a72a-e1ed7481c12e.png",
+    image: "./../assets/IMG/66d86c69-d20c-4117-a72a-e1ed7481c12e.png",
     discount: 0,
   },
   {
@@ -29,7 +29,7 @@ const foods = [
     name: "NASI GORENG CENTURY",
     price: 27000,
     category: "Makanan Berat",
-    image: "./assets/IMG/6854cbc3-2206-4ca2-879f-5a12dc0c0671.png",
+    image: "./../assets/IMG/6854cbc3-2206-4ca2-879f-5a12dc0c0671.png",
     discount: 0,
   },
   {
@@ -37,7 +37,7 @@ const foods = [
     name: "PIZZA TARIK MENARIK",
     price: 47000,
     category: "Makanan Berat",
-    image: "./assets/IMG/6dc329a3-9645-4b52-ade7-a629cbea0d81.png",
+    image: "./../assets/IMG/6dc329a3-9645-4b52-ade7-a629cbea0d81.png",
     discount: 0,
   },
   {
@@ -45,7 +45,7 @@ const foods = [
     name: "HEALTHY REAL FOOD",
     price: 69.000,
     category: "Makanan Berat",
-    image: "./assets/IMG/84a2a237-f6b4-4bff-ae21-d1a420a6f889.png",
+    image: "./../assets/IMG/84a2a237-f6b4-4bff-ae21-d1a420a6f889.png",
     discount: 0,
   },
   {
@@ -54,7 +54,7 @@ const foods = [
     price: 35000,
     category: "Makanan Berat",
     image:
-      "./assets/IMG/A plate of food with a chicken vegetables and rice….png",
+      "./../assets/IMG/A plate of food with a chicken vegetables and rice….png",
     discount: 0,
   },
   {
@@ -62,7 +62,7 @@ const foods = [
     name: "DIM TO SUM",
     price: 13000,
     category: "Makanan Ringan",
-    image: "./assets/IMG/ㅤ                😵_💫  ੈ _  𝑝͟𝑛͟𝑔   ✿⃨.png",
+    image: "./../assets/IMG/ㅤ                😵_💫  ੈ _  𝑝͟𝑛͟𝑔   ✿⃨.png",
     discount: 0,
   },
 ];
@@ -172,7 +172,7 @@ searchButton.addEventListener("click", () => {
   let results = filter(searchBar.value, foods);
   catalogContainer.innerHTML = "";
   if (!results.length) {
-    catalogContainer.innerHTML = `<h1 class="no-search">Tidak Ada Makanan Yang Cocok</h1> <img class="no-search" src="./assets/IMG/yaki mappikkiri.jpg">`;
+    catalogContainer.innerHTML = `<h1 class="no-search">Tidak Ada Makanan Yang Cocok</h1> <img class="no-search" src="./../assets/IMG/yaki mappikkiri.jpg">`;
     catalogContainer.classList.add("no-result");
   } else {
     catalogContainer.classList = "";

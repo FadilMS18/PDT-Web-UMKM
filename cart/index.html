@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart - KANRETIME</title>
+    <link rel="stylesheet" href="./cart-style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">KANRETIME</div>
+        <div class="nav-links">
+          <a href="./../index.html">Home</a>
+          <a href="./../index.html#our-best-container">Best from us</a>
+          <a href="./../index.html#about-me-container">About us</a>
+          <a href="./../katalog.html">Catalog</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>KERANJANG ANDA</h1>
+
+      <div class="cart-items" id="cartItems"></div>
+
+      <div class="order-summary">
+        <h2>Ringkasan Pesanan</h2>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="subtotal">Rp 565.000</span>
+        </div>
+
+        <div class="summary-row discount">
+          <span>Diskon (-20%)</span>
+          <span id="discount">-Rp 113.000</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Biaya Pengiriman</span>
+          <span id="deliveryFee">Rp 15.000</span>
+        </div>
+
+        <div class="summary-row total">
+          <span>Total</span>
+          <span id="total">Rp 467.000</span>
+        </div>
+
+        <div class="promo-input">
+          <input
+            type="text"
+            placeholder="🏷️ Masukkan kode promo"
+            id="promoCode"
+          />
+          <button class="apply-btn" onclick="applyPromo()">Terapkan</button>
+        </div>
+
+        <button class="checkout-btn">Checkout Sekarang →</button>
+      </div>
+    </div>
+
+    <div class="newsletter">
+      <h2>DAPATKAN SEMUA INFO TENTANG<br />PROMO TERBARU KAMI</h2>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="✉️ Masukkan alamat email Anda" />
+        <button type="submit">Berlangganan Newsletter</button>
+      </form>
+    </div>
+
+    <footer id="footer">
+      <div id="footer-description" data-animate>
+        <h2>Kanre Time</h2>
+        <p id="tagline">Kuliner Khas Bugis, Asli & Autentik</p>
+        <p id="desc">
+          Apa pun masalahnya, jangan lupa isi perut di waktu makan. Menyajikan
+          cita rasa Bugis dengan bahan terbaik dan rasa yang tidak pernah
+          berubah.
+        </p>
+      </div>
+
+      <div id="footer-navigation-menu" data-animate>
+        <h3>Navigation Menu</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="./index.html#about-me-container">About Us</a></li>
+          <li><a href="./index.html#our-best-container">Best of Us</a></li>
+          <li><a href="./katalog.html">Catalog</a></li>
+          <li>
+            <a href="./admin/admin-dashboard.html" target="_blank"
+              >Admin Dashboard</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div id="footer-navigation-menu" data-animate>
+        <h3>Kelompok 2</h3>
+        <ul>
+          <li><a href="#">Muh.Fadhil Malik Sukardi</a></li>
+          <li><a href="#">Sukmayani</a></li>
+          <li><a href="#">Puspawati</a></li>
+          <li><a href="#">Muzakkir</a></li>
+          <li><a href="#">Firmansyah Umar</a></li>
+        </ul>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 KANRETIME. All rights reserved dari kelompok 2.</p>
+      </div>
+    </footer>
+
+    <script src="./cart.js"></script>
+  </body>
+</html>
